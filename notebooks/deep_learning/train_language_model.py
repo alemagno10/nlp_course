@@ -65,8 +65,9 @@ class MyLanguageModel(nn.Module):
 
     def forward(self, x):
         x = self.embedding(x)
-        x = self.sequence_model(x)
-        x = self.clf(x)
+        x = self.sequence_model(x) # comprime embedding para nivel de documentos
+
+        x = self.clf(x) # softmax
         return x
 
 
